@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,31 +12,67 @@
 
 <body>
     <!-- Header -->
-        <header>
+    <header>
 
-            <div id="viewHS">
-                <a href="">View High Scores</a>
-            </div>
+        <div id="viewHS">
+            <a href="">View High Scores</a>
+        </div>
 
-            <div>
-                <h4 id="timer"></h4>
-            </div>
+        <div>
+            <h4 id="timer"></h4>
+        </div>
 
-        </header>
+    </header>
     <!-- Div for game -->
 
-    <section id="wrapper">
-        <h2 id="main-text">CODING QUIZ</h2>
-        <p id="instructions">Answer the following questions as fast as you can. Any incorrect answers will deduct 10 seconds from the timer. Once the timer reaches 0, the game is over. Click the "Start" button to begin. Good Luck!</p>
-        <div id="answers">
-            
-        </div>
-        <div id="start-button" >Start</div>
-    </section>
+    <div id="wrapper">
 
-    
+        <!-- JS write question to #main-text -->
+        <section id="intro" class= "container">
+            <h2 id="main-text">CODING QUIZ</h2>
+
+            <p id="instructions">Answer the following questions as fast as you can. Any incorrect answers will deduct 10
+                seconds from the timer. Once the timer reaches 0, the game is over. Click the "Start" button to begin.
+                Good Luck!</p>
+
+            <div id="start-button">Start</div>
+
+        </section>
+
+        <!-- for JS to write questions/answers -->
+        <section id="q-and-a" class="container">
+
+            <div id="question">
+
+            </div>
+
+            <div id="answers">
+
+            </div>
+
+            <div id="showAnswer">
+
+            </div>
+
+        </section>
+
+        <!-- Score page -->
+
+        <section id="scorepage" class="hidden container">
+            <label for="name">Name</label>
+            <input type="text" id="name"
+            name= "name" placeholder="Name" >
+            </input>
+            <button>Submit</button>
+
+        </section>
+
+    </div>
+
+
 
     <!-- script for game -->
     <script src="Assets/script.js"></script>
 </body>
+
 </html>

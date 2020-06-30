@@ -1,9 +1,14 @@
 // * Variables
 var start = document.querySelector("#start-button");
 var mainText = document.querySelector("#main-text")
-var timeEl = document.querySelector("timer");
+var timeEl = document.querySelector("#timer");
+var intro = document.querySelector("#intro");
+var scorePage = document.querySelector("#scorepage")
+var questionAnswer = document.querySelector("#q-and-a");
+ 
 
 var secondsLeft = 75;
+var questionIndex = 0;
 
 // * Questions array
 
@@ -38,19 +43,99 @@ var questions = [
 
 
 // * Functions
-// function setTime() {
-//     var timeInterval = setInterval(function() {
-//         secondsLeft --;
-//         timeEl.textContent = "Timer: " + secondsLeft;
+function showQuestion() {
+    var nextQuestion = questions[questionIndex];
 
-//         if (secondsLeft === 0) {
-//             clearInterval(timeInterval);
-//         }
+    var questionDiv = document.querySelector("#question");
+    var answerDiv = document.querySelector("#answers");
+    var showAnswer = document.querySelector("#showAnswer");
+
+    questionDiv.textContent = nextQuestion.question;
+
+    var answerList = document.createElement("ul");
+    var listItem;
+    var answerButton;
+
+    function checkAnswer() {
+
+        // ! WORK THIS
+        console.log(nextQuestion.answer[0]);
+        console.log(nextQuestion.correctAnswer);
+            
+        for (var i = 0; i < nextQuestion.answer.length; i++) {
+            if (nextQuestion.answer[i] === nextQuestion.correctAnswer) {
+                showAnswer.textContent = "Correct";
+        } 
+        else {
+            showAnswer.textContent = "Wrong";
+            // secondsLeft-= 10;
+        }
+        }
+    }   
+        
+    
+
+    
+    for (var i = 0; i < nextQuestion.answer.length; i++) {
+        listItem = document.createElement("li");
+        answerButton = document.createElement("button");
+        answerButton.textContent = nextQuestion.answer[i];
+        answerButton.addEventListener("click", checkAnswer);
+
+        listItem.appendChild(answerButton);
+        answerList.appendChild(listItem);
+    }
+    
+    answerDiv.appendChild(answerList);
+
+    
+};
 
 
-//     }, 1000)
-// }
+function startTimer() {
+    
+    var timeInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = "Timer: " + secondsLeft;
+        
+        function stopTimer() {
+            
+            clearInterval(timeInterval);
+            
+        }
+        if (secondsLeft === 0) {
+            stopTimer();
+            questionAnswer.classList.add("hidden");
+            scorePage.classList.remove("hidden");
+
+        }
+        
+    
+    }, 1000)
+
+}
+
+
+function startQuiz() {
+    intro.classList.add("hidden");
+    
+    startTimer();
+    showQuestion();
+}
+
+function stopQuiz() {
+    
+}
+
+function saveScore() {
+
+}
+
+function getScores() {
+
+}
+
 
 // * on-click actions
-// start.addEventListener("click", );
+start.addEventListener("click", startQuiz);
 
