@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Assets/style.css">
+    
 
     <title>Code Quiz</title>
 </head>
@@ -14,8 +15,8 @@
     <!-- Header -->
     <header>
 
-        <div id="viewHS">
-            <a href="">View High Scores</a>
+        <div >
+            <span id="viewHS">View High Scores</span>
         </div>
 
         <div>
@@ -59,20 +60,38 @@
         <!-- Score page -->
 
         <section id="scorepage" class="hidden container">
-            <label for="name">Name</label>
-            <input type="text" id="name"
-            name= "name" placeholder="Name" >
-            </input>
-            <button>Submit</button>
+            <h2 id="userscore"></h2>
 
+            <label for="name">Enter Initials</label>
+            <input type="text" id="name"
+            name= "name" placeholder="Initials" >
+            </input>
+
+            <button id = "submit">Submit</button>
+
+        </section>
+
+        <!-- Score History -->
+        <section id="highscores" class = "hidden">
+            <h2>High Scores</h2>
+
+            <div >
+                <ul id="hs-list">
+                    
+                </ul>
+
+            </div>
+
+            <button id="clearscores">Clear High Scores</button>
+            <button id="goback">Go Back</button>
         </section>
 
     </div>
 
+<!-- script for game -->
+<script src="Assets/script.js"></script>
 
-
-    <!-- script for game -->
-    <script src="Assets/script.js"></script>
+    
 </body>
 
 </html>
