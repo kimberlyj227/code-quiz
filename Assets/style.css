@@ -3,11 +3,7 @@
     font-size: 16px;
 }
 
-header {
-    padding: 10px;
-    margin: 10px;
-}   
-
+/* HELPER CLASSES */
 .hidden {
     display: none;
 }
@@ -16,6 +12,14 @@ header {
     display: block;
 }
 
+/* HEADER */
+header {
+    padding: 10px;
+    margin: 10px;
+}   
+
+
+
 #viewHS a{
     font-size: 20px;
     color: blueviolet;
@@ -23,10 +27,7 @@ header {
     text-decoration: none;
 }
 
-#timer {
-    font-weight: 700;
-    float: right;
-}
+
 
 #wrapper {
     margin: 0 auto;
@@ -35,6 +36,7 @@ header {
     width: 75%;
 }
 
+/* INFO DIV */
 .container {
     margin: 0 auto;
     width: 60%;
@@ -60,6 +62,11 @@ h2 {
 }
 
 
+/* QUESTION DIV */
+#timer {
+    font-weight: 700;
+    float: right;
+}
 
 #question {
     font-size: 20px;
@@ -80,3 +87,12 @@ button {
     margin-bottom: 10px;
     
 }
+
+#showAnswer {
+    font-size: 20px;
+    color: grey;
+    border-top: 1px solid gray;
+    padding: 10px;
+}
+
+/* SCORES DIV */
