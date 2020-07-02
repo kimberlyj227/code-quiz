@@ -31,11 +31,12 @@ I also needed to create the following click events:
 - Go back
 
 ### Links
-https://github.com/kimberlyj227/code-quiz
-https://kimberlyj227.github.io/code-quiz/
+[GitHub](https://github.com/kimberlyj227/code-quiz)
+[GitHub Live Site](https://kimberlyj227.github.io/code-quiz/)
 
 ### Example
 
+![Example](/Assets/code-quiz.gif)
 
 
 
