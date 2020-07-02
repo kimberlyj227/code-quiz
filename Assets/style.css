@@ -100,3 +100,21 @@ button {
 #name {
     margin-bottom: 20px;
 }
+
+/* High Scores */
+
+#halloffame {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+
+}
+
+#halloffame li {
+    padding: 10px;
+    min-width: 100%;
+}
+
+#halloffame li:nth-child(even) {
+    background-color: lightgoldenrodyellow;
+}

@@ -23,6 +23,7 @@ var highScoresDiv = document.querySelector("#highscores");
 var goBack = document.querySelector("#goback");
 var clearScores = document.querySelector("#clearscores");
 var highScoresArray;
+var scoreIndex = 0;
 
 
 // * Questions array
@@ -50,6 +51,11 @@ var questions = [{
     {
         question: "What character points to the entire document in CSS?",
         answer: ["*", "-", "$", "~"],
+        correctAnswer: 0,
+    },
+    {
+        question: "Javascript is awesome!",
+        answer: ["true", "false"],
         correctAnswer: 0,
     }
 ]
@@ -196,17 +202,17 @@ function getScores() { // *working
 
 }
 
-function showHighScores() {
+function showHighScores() {    // *working
     var hallOfFame = document.querySelector("#halloffame");
-    debugger;
+    hallOfFame.innerHTML="";
+
     for (var i = 0; i < highScoresArray.length; i++) {
-        var score = highScoresArray[i];
+        var score = `${highScoresArray[i].name} : ${highScoresArray[i].score}`;
         var li = document.createElement("li");
         li.textContent = score;
         hallOfFame.appendChild(li);
     }
 
-    
 }
 
 
@@ -227,6 +233,7 @@ submit.addEventListener("click", function (event) {
     event.preventDefault();
 
     saveScore();
+    showHighScores;
 
     highScoresDiv.classList.remove("hidden");
     scorePage.classList.add("hidden");
@@ -235,7 +242,8 @@ submit.addEventListener("click", function (event) {
 
 // Clear high scores: clears high scores from local storage
 clearScores.addEventListener("click", function () {
-    
+    localStorage.clear();
+    showHighScores();
 });
 
 // Go back: returns to intro screen
