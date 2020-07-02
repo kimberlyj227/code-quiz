@@ -27,7 +27,6 @@ var scoreIndex = 0;
 
 
 // * Questions array
-
 var questions = [{
         question: "How do you join an array into a string?",
         answer: [".join()", "join", "connect", "you can't"],
@@ -74,7 +73,7 @@ var questions = [{
 // save scores: saves scores to local storage
 
 
-function startTimer() { // * working
+function startTimer() {
 
     timeInterval = setInterval(function () {
         secondsLeft--;
@@ -83,7 +82,7 @@ function startTimer() { // * working
         if (secondsLeft <= 0 || questionIndex === -1) {
             stopTimer();
             stopQuiz();
-            
+
         }
 
 
@@ -91,13 +90,13 @@ function startTimer() { // * working
 
 }
 
-function stopTimer() { // * working
+function stopTimer() {
 
     clearInterval(timeInterval);
 
 }
 
-function startQuiz() { // * working
+function startQuiz() {
     intro.classList.add("hidden");
 
     getScores();
@@ -106,7 +105,7 @@ function startQuiz() { // * working
 }
 
 
-function showQuestion() { // * working 
+function showQuestion() {
     var nextQuestion = questions[questionIndex];
     var questionDiv = document.querySelector("#question");
 
@@ -144,7 +143,7 @@ function showQuestion() { // * working
 
 };
 
-function checkAnswer(event, nextQuestion) { // *working
+function checkAnswer(event, nextQuestion) {
 
     var el = event.target;
     var index = parseInt(el.getAttribute("data-index"));
@@ -164,7 +163,7 @@ function checkAnswer(event, nextQuestion) { // *working
     setTimeout(function () {
         answerDiv.innerHTML = "";
         // debugger;
-        if ((secondsLeft === 0)|| questionIndex === questions.length) {
+        if ((secondsLeft === 0) || questionIndex === questions.length) {
             stopQuiz();
         } else {
             showQuestion();
@@ -176,7 +175,7 @@ function checkAnswer(event, nextQuestion) { // *working
 
 
 
-function stopQuiz() { // *working
+function stopQuiz() {
     intro.classList.add("hidden");
     questionAnswer.classList.add("hidden");
     scorePage.classList.remove("hidden");
@@ -189,27 +188,27 @@ function stopQuiz() { // *working
 }
 
 
-function saveScore() { //* working
+function saveScore() {
     var userInput = document.querySelector("#name").value;
     var newScore = {
         name: userInput,
         score: secondsLeft
     };
-    
+
     highScoresArray.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScoresArray));
 }
 
 
-function getScores() { // *working
+function getScores() {
 
     highScoresArray = JSON.parse(localStorage.getItem("highScores")) || [];
 
 }
 
-function showHighScores() {    // *working
+function showHighScores() {
     var hallOfFame = document.querySelector("#halloffame");
-    hallOfFame.innerHTML="";
+    hallOfFame.innerHTML = "";
 
     for (var i = 0; i < highScoresArray.length; i++) {
         var score = `${highScoresArray[i].name} : ${highScoresArray[i].score}`;
@@ -223,10 +222,10 @@ function showHighScores() {    // *working
 
 // * on-click events
 // start quiz: hides intro screen and starts timer
-start.addEventListener("click", startQuiz); //* working
+start.addEventListener("click", startQuiz);
 
 // click "view high scores" takes you to high scores page
-viewScores.addEventListener("click", function () { //* working
+viewScores.addEventListener("click", function () {
     intro.classList.add("hidden");
     highScoresDiv.classList.remove("hidden");
     getScores();
@@ -252,7 +251,7 @@ clearScores.addEventListener("click", function () {
 });
 
 // Go back: returns to intro screen
-goBack.addEventListener("click", function () { //* working
+goBack.addEventListener("click", function () {
     intro.classList.remove("hidden");
     highScoresDiv.classList.add("hidden");
 });
