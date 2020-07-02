@@ -57,6 +57,11 @@ var questions = [{
         question: "Javascript is awesome!",
         answer: ["true", "false"],
         correctAnswer: 0,
+    },
+    {
+        question: "What CANNOT be stored in an array?",
+        answer: ["objects", "strings", "numbers", "none of the above"],
+        correctAnswer: 3,
     }
 ]
 
@@ -233,7 +238,7 @@ submit.addEventListener("click", function (event) {
     event.preventDefault();
 
     saveScore();
-    showHighScores;
+    showHighScores();
 
     highScoresDiv.classList.remove("hidden");
     scorePage.classList.add("hidden");
@@ -243,7 +248,7 @@ submit.addEventListener("click", function (event) {
 // Clear high scores: clears high scores from local storage
 clearScores.addEventListener("click", function () {
     localStorage.clear();
-    showHighScores();
+    document.querySelector("#halloffame").innerHTML = "";
 });
 
 // Go back: returns to intro screen
