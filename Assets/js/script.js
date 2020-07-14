@@ -79,7 +79,7 @@ function startTimer() {
         secondsLeft--;
         timeEl.textContent = "Timer: " + secondsLeft;
 
-        if (secondsLeft <= 0 || questionIndex === -1) {
+        if (secondsLeft <= 0 || questionIndex === 0) {
             stopTimer();
             stopQuiz();
 
@@ -108,7 +108,6 @@ function startQuiz() {
 function showQuestion() {
     var nextQuestion = questions[questionIndex];
     var questionDiv = document.querySelector("#question");
-
     var answerList = document.createElement("ul");
     var listItem;
     var answerButton;
@@ -140,6 +139,10 @@ function showQuestion() {
 
     answerDiv.appendChild(answerList); // appends list into answer div
     questionIndex++; // update questions index
+
+    if (questionAnswer.classList.contains("hidden")) {
+        questionAnswer.classList.remove("hidden");
+    }
 
 };
 
@@ -180,6 +183,7 @@ function stopQuiz() {
     questionAnswer.classList.add("hidden");
     scorePage.classList.remove("hidden");
     timeEl.classList.add("hidden");
+    questionIndex = 0;
     stopTimer();
 
 
@@ -226,6 +230,9 @@ start.addEventListener("click", startQuiz);
 
 // click "view high scores" takes you to high scores page
 viewScores.addEventListener("click", function () {
+    if (questionIndex > 0) {
+        return 
+    }
     intro.classList.add("hidden");
     highScoresDiv.classList.remove("hidden");
     getScores();
@@ -254,4 +261,9 @@ clearScores.addEventListener("click", function () {
 goBack.addEventListener("click", function () {
     intro.classList.remove("hidden");
     highScoresDiv.classList.add("hidden");
+    questionIndex = 0;
+    secondsLeft = 75;
+    // timeInterval;
+    console.log(questionIndex);
+    console.log(secondsLeft);
 });

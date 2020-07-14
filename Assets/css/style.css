@@ -25,6 +25,11 @@ header {
     text-decoration: none;
 }
 
+#viewHS:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 
 #wrapper {
@@ -57,7 +62,7 @@ h2 {
     text-align: center;
     color: white;
     width: 100px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 
